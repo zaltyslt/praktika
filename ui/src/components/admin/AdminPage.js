@@ -23,6 +23,7 @@ export function AdminPage() {
         addressStreet: '',
         addressCity: '',
         workers:[],
+        edit:false,
     }
     const [service, setService] = useState(emptyService);
 
@@ -152,15 +153,18 @@ export function AdminPage() {
             })
     }
 
-    const handleEditService = (serviceToEdit) => {
+    const editService = (serviceToEdit) => {
         console.log(service);
         console.log(serviceToEdit);
-        const tempService = {...service, serviceEdit: true,}
-       setService(tempService);
-       setShowServiceForm(true);
-        // const user = Auth.getUser()
-        // // setIsOrdersLoading(true);
-        // authApi.updateOrder(user, order)
+        const tempService = {...serviceToEdit, serviceEdit: true,}
+        setService(tempService);
+        setShowServiceForm(true);
+    }
+
+    const handleEditService = () => {
+
+        const user = Auth.getUser()
+        authApi.updateOrder(user, order)
         //     .then(response => {
         //         console.log(response.data);
         //
@@ -183,6 +187,7 @@ console.log(id);
 
         authApi.deleteService(user, id)
             .then(() => {
+                setShowServiceForm(false);
                 handleGetServices()
             })
             .catch(error => {
@@ -217,6 +222,7 @@ console.log(id);
                     showServiceForm={showServiceForm}
                     handleDeleteService={handleDeleteService}
                     handleEditService={handleEditService}
+                    editService={editService}
 
                     handleInputChange={handleInputChange}
 

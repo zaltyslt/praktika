@@ -21,6 +21,7 @@ export function AdminTab(props) {
         showServiceForm,
         handleDeleteService,
         handleEditService,
+        editService,
     } = props;
 
 
@@ -51,7 +52,7 @@ export function AdminTab(props) {
 
                         createService={createService}
                         handleDeleteService={handleDeleteService}
-                        handleEditService={handleEditService}
+                        editService={editService}
 
                     />
                 </Tab.Pane>) :(

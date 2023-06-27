@@ -6,12 +6,12 @@ export function ServiceForm({
                                 service,
                                 handleInputChange,
                                 handleCreateService,
-                                handleEditService
+                                editService
                             }) {
     const createBtnDisabled = service.title.trim() === '';
     console.log(service);
     return (
-        <Form onSubmit={ service.edit === false ? (handleCreateService) : (handleEditService)}>
+        <Form onSubmit={ service.edit === false ? (handleCreateService) : (editService)}>
             <Form.Group>
                 <Form.Input
                     label={"Title"}
