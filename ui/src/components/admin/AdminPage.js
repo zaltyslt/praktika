@@ -164,7 +164,7 @@ export function AdminPage() {
     const handleEditService = () => {
 
         const user = Auth.getUser()
-        authApi.updateOrder(user, order)
+        authApi.updateOrder(user, service)
         //     .then(response => {
         //         console.log(response.data);
         //
